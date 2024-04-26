@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rottenpotatoes</title>
+    <title>Rottenpotatoes!</title>
+    <link rel="stylesheet" href = "https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +12,13 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <%- if flash[:notice] %>
+      <div class="alert alert-info text-center"><%=flash[:notice]%></div>
+      <%- elsif flash[:alert] %>
+      <div class="alert alert-danger text-center"><%=flash[:alert]%></div>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
