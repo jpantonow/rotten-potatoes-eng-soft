@@ -8,5 +8,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root :to => 'movie#index'
-  resources :movies
+  resources :movie
 end
