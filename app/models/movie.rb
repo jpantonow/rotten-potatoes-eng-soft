@@ -1,23 +1,11 @@
 class Movie < ApplicationRecord
-  # attr_accessor :ratings
-  # attr_accessor :name
-  # attr_accessor :title
-  # attr_accessor :release_date
+  # attr_accessor :title, :rating, :description, :release_date, :director
 
-  # def initialize(name, calories, flavor)
-  #   @name = name
-  #   @ratings = ratings
-  #   @title = title
-  #   @release_date = release_date
-  # end
-
-  def self.ratings
-    %w[G PG PG-13 R]
+  def self.all_ratings
+    result = {}
+    self.select(:rating).uniq.each do |movie|
+      result[movie.rating] = 1
+    end
+    result
   end
-  # def self.title
-  #  return title
-  # end
-  # def self.release_date
-  #   return release_date
-  # end
 end
